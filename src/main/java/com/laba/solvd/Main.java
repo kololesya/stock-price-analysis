@@ -1,19 +1,36 @@
 package com.laba.solvd;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.List;
+
+import static com.laba.solvd.StockPriceAnalysis.*;
+
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        // The stockPricesArray is defined directly in the code. Since you control the data, no input-related exceptions
+        // like NumberFormatException or InputMismatchException can occur.
+        // Since the program does not take any input from users, there's no need for validation or error handling for
+        // invalid inputs.
+        try {
+            float[] stockPricesArray = {123.5f, 125.0f, 128.75f, 130.0f, 126.5f, 127.75f, 129.0f, 124.5f, 122.0f, 128.5f};
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+            // Calculate and display the average price
+            float averagePrice = calculateAveragePrice(stockPricesArray);
+            System.out.println("Average Stock Price: " + averagePrice);
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+            // Find and display the maximum price
+            float maxPrice = findMaximumPrice(stockPricesArray);
+            System.out.println("Maximum Stock Price: " + maxPrice);
+
+            // Count occurrences of a specific price
+            float targetPrice = 128.75f;
+            int occurrences = countOccurrences(stockPricesArray, targetPrice);
+            System.out.println("Occurrences of " + targetPrice + ": " + occurrences);
+
+            // Compute and display the cumulative sum
+            List<Float> cumulativeSum = computeCumulativeSum(stockPricesArray);
+            System.out.println("Cumulative Sum: " + cumulativeSum);
+        } catch (Exception e) {
+            System.out.println("An unexpected error occurred: " + e.getMessage());
         }
     }
 }
