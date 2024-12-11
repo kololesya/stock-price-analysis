@@ -46,11 +46,7 @@ public class StockPriceAnalysis {
 
     // Compute the cumulative sum of stock prices
     public static List<Float> computeCumulativeSum(float[] prices) {
-        List<Float> stockPricesList = new ArrayList<>();
-        for (float price : prices) {
-            stockPricesList.add(price);
-        }
-        if (stockPricesList.isEmpty()) {
+        if (prices == null || prices.length == 0) {
             throw new IllegalArgumentException("Prices list cannot be null or empty");
         }
         List<Float> cumulativeSum = new ArrayList<>();
